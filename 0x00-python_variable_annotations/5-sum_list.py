@@ -6,8 +6,7 @@ This module provides a function to sum a list of floats.
 """
 
 
-def sum_list(input_list: List[float]) -> float:
-    """
+"""
     Calculate the sum of a list of floats.
 
     Args:
@@ -16,4 +15,7 @@ def sum_list(input_list: List[float]) -> float:
     Returns:
         float: The sum of all float numbers in the list.
     """
+
+
+def sum_list(input_list: List[float]) -> float:
     return sum(input_list)
