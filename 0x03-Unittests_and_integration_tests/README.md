@@ -60,3 +60,31 @@ We tested the function with the following invalid inputs:
 ```bash
 python -m unittest test_utils.py
 ```
+
+## Task 2: Mock HTTP Calls
+
+**`Description`**:
+
+We extended the `test_utils.py` file to include unit tests for the `get_json` function from `utils.py`. This function retrieves JSON data from a remote URL using HTTP GET requests. Since we don't want to make actual HTTP calls during testing, we mocked the `requests.get` method using `unittest.mock.patch`.
+
+**`Solution`**:
+
+- **File**: `test_utils.py`
+- **Tested Function**: `get_json` from `utils.py`
+
+We tested the function with the following inputs:
+
+1. `test_url="http://example.com", test_payload={"payload": True}`
+2. `test_url="http://holberton.io", test_payload={"payload": False}`
+
+**`Requirements`**:
+
+- Files interpreted/compiled on Ubuntu 18.04 LTS using Python 3.7.
+- Python files follow `pycodestyle` style (version 2.5).
+- The `requests.get` method was mocked using `unittest.mock.patch`.
+
+**`Example Usage`**:
+
+```bash
+python -m unittest test_utils.py
+```
