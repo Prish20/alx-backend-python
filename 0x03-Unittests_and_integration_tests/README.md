@@ -88,3 +88,31 @@ We tested the function with the following inputs:
 ```bash
 python -m unittest test_utils.py
 ```
+
+## Task 3: Parameterize and Patch
+
+**`Description`**:
+
+We wrote unit tests for the `memoize` decorator from `utils.py`. The `memoize` decorator caches the result of a method after the first call, ensuring that subsequent calls return the cached result without re-executing the method. 
+
+**`Solution`**:
+
+- **File**: `test_utils.py`
+- **Tested Function**: `memoize` from `utils.py`
+
+We tested the memoization using the following inputs:
+
+- A `TestClass` with a method `a_method()` that returns `42`.
+- The method was decorated with `@memoize` and accessed twice.
+
+**`Requirements`**:
+
+- Files interpreted/compiled on Ubuntu 18.04 LTS using Python 3.7.
+- Python files follow `pycodestyle` style (version 2.5).
+- The `unittest.mock.patch` was used to mock `a_method` and assert it was only called once.
+
+**`Example Usage`**:
+
+```bash
+python -m unittest test_utils.py
+```
