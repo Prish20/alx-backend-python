@@ -32,3 +32,31 @@ We tested the function with the following inputs:
 ```bash
 python -m unittest test_utils.py
 ```
+
+## Task 1: Parameterize a Unit Test (Exception Handling)
+
+**`Description`**:
+
+We extended the unit test for the `access_nested_map` function to check that a `KeyError` is raised for invalid paths in the nested map. The test was parameterized to handle multiple input cases where errors are expected.
+
+**`Solution`**:
+
+- **File**: `test_utils.py`
+- **Tested Function**: `access_nested_map` from `utils.py`
+
+We tested the function with the following invalid inputs:
+
+1. `nested_map={}, path=("a",)`: Expected result: `KeyError`
+2. `nested_map={"a": 1}, path=("a", "b")`: Expected result: `KeyError`
+
+**`Requirements`**:
+
+- Files interpreted/compiled on Ubuntu 18.04 LTS using Python 3.7.
+- Python files follow `pycodestyle` style (version 2.5).
+- The `assertRaises` context manager was used to verify the `KeyError`.
+
+**`Example Usage`**:
+
+```bash
+python -m unittest test_utils.py
+```
