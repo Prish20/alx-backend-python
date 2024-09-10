@@ -201,3 +201,31 @@ We parameterized the test with the following inputs:
 ```bash
 python -m unittest test_client.py
 ```
+
+## Task 8: Integration Test with Fixtures
+
+**`Description`**:
+
+We wrote integration tests for the `GithubOrgClient.public_repos` method from `client.py`. These tests ensure that the method returns the expected list of public repositories, both with and without license filtering.
+
+**`Solution`**:
+
+- **File**: `test_client.py`
+- **Tested Method**: `public_repos` from `GithubOrgClient` in `client.py`
+
+We used fixtures from `fixtures.py`:
+
+- `org_payload`: Simulated payload for the organization.
+- `repos_payload`: Simulated payload for repositories.
+- `expected_repos`: The expected repositories list.
+- `apache2_repos`: The expected repositories filtered by `apache-2.0` license.
+
+**`Requirements`**:
+
+- The `requests.get` method is mocked using `unittest.mock.patch` to return the payloads from the fixtures.
+
+**`Example Usage`**:
+
+```bash
+python -m unittest test_client.py
+```
