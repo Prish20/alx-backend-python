@@ -178,3 +178,26 @@ We mocked `get_json` to return the following payload:
 ```python
 [{"name": "repo1"}, {"name": "repo2"}]
 ```
+
+## Task 7: Parameterize
+
+**`Description`**:
+
+We wrote a unit test for the `GithubOrgClient.has_license` method from `client.py`. This method checks whether a given repository has a specific license.
+
+**`Solution`**:
+
+- **File**: `test_client.py`
+- **Tested Method**: `has_license` from `GithubOrgClient` in `client.py`
+
+We parameterized the test with the following inputs:
+
+1. A repository with the license `my_license` and the expected output is `True`.
+2. A repository with a different license (`other_license`) and the expected output is `False`.
+3. A repository without a license, with the expected output being `False`.
+
+**`Example Usage`**:
+
+```bash
+python -m unittest test_client.py
+```
