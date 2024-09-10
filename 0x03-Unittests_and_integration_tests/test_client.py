@@ -32,8 +32,8 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch("client.GithubOrgClient.org", new_callable=PropertyMock)
     def test_public_repos_url(self, mock_org):
-        """Test that _public_repos_url
-        returns the expected result based on the mocked payload"""
+        """Test that _public_repos_url returns
+        the expected result based on the mocked payload"""
         # Mock the return value of org to a known payload
         mock_org.return_value = {
             "repos_url": "https://api.github.com/orgs/mock_org/repos"}
@@ -46,6 +46,39 @@ class TestGithubOrgClient(unittest.TestCase):
 
         # Assert that the result matches the repos_url from the mocked payload
         self.assertEqual(result, "https://api.github.com/orgs/mock_org/repos")
+
+    @patch("client.get_json")
+    def test_public_repos(self, mock_get_json):
+        """Test that GithubOrgClient.public_repos
+        returns the expected list of repos"""
+        # Mock the return value of get_json to simulate a list of repositories
+        mock_get_json.return_value = [
+            {"name": "repo1"},
+            {"name": "repo2"},
+        ]
+
+        # Mock the _public_repos_url property to return a specific URL
+        with patch(
+            "client.GithubOrgClient._public_repos_url",
+            new_callable=PropertyMock
+        ) as mock_public_repos_url:
+            mock_public_repos_url.return_value = (
+                "https://api.github.com/orgs/mock_org/repos"
+            )
+
+            # Instantiate the client
+            client = GithubOrgClient("mock_org")
+
+            # Call the public_repos method
+            repos = client.public_repos()
+
+            # Assert that the list of repos matches the expected result
+            self.assertEqual(repos, ["repo1", "repo2"])
+
+            # Assert that _public_repos_url and get_json were called once
+            mock_public_repos_url.assert_called_once()
+            mock_get_json.assert_called_once_with(
+                "https://api.github.com/orgs/mock_org/repos")
 
 
 if __name__ == "__main__":

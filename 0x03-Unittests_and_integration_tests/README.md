@@ -161,3 +161,20 @@ We mocked the `org` property to return the following payload:
 ```python
 {"repos_url": "https://api.github.com/orgs/mock_org/repos"}
 ```
+
+## Task 6: More Patching
+
+**`Description`**:
+
+We wrote a unit test for the `GithubOrgClient.public_repos` method from `client.py`. This method retrieves a list of public repositories for a given organization. We used `unittest.mock.patch` to mock both the `get_json` function and the `_public_repos_url` property.
+
+**`Solution`**:
+
+- **File**: `test_client.py`
+- **Tested Method**: `public_repos` from `GithubOrgClient` in `client.py`
+
+We mocked `get_json` to return the following payload:
+
+```python
+[{"name": "repo1"}, {"name": "repo2"}]
+```
