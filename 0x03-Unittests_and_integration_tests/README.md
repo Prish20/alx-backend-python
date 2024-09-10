@@ -144,3 +144,20 @@ We tested the `org` method with the following inputs:
 ```bash
 python -m unittest test_client.py
 ```
+
+## Task 5: Mocking a Property
+
+**`Description`**:
+
+We wrote a unit test for the `GithubOrgClient._public_repos_url` method from `client.py`. This method retrieves the public repositories URL for a given organization. We used `unittest.mock.patch` to mock the `org` property and return a predefined payload with the `repos_url`.
+
+**`Solution`**:
+
+- **File**: `test_client.py`
+- **Tested Method**: `_public_repos_url` from `GithubOrgClient` in `client.py`
+
+We mocked the `org` property to return the following payload:
+
+```python
+{"repos_url": "https://api.github.com/orgs/mock_org/repos"}
+```
