@@ -116,3 +116,31 @@ We tested the memoization using the following inputs:
 ```bash
 python -m unittest test_utils.py
 ```
+
+## Task 4: Parameterize and Patch as Decorators
+
+**`Description`**:
+
+We wrote unit tests for the `GithubOrgClient.org` method from `client.py`. This method retrieves data from the GitHub API for a given organization. We used `unittest.mock.patch` to mock the `get_json` method to avoid making actual HTTP calls during testing.
+
+**`Solution`**:
+
+- **File**: `test_client.py`
+- **Tested Class**: `GithubOrgClient` from `client.py`
+
+We tested the `org` method with the following inputs:
+
+1. `org_name="google"`
+2. `org_name="abc"`
+
+**`Requirements`**:
+
+- Files interpreted/compiled on Ubuntu 18.04 LTS using Python 3.7.
+- Python files follow `pycodestyle` style (version 2.5).
+- The `get_json` method was mocked using `unittest.mock.patch`.
+
+**`Example Usage`**:
+
+```bash
+python -m unittest test_client.py
+```
