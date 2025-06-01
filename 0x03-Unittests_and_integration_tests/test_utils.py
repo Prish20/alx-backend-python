@@ -37,7 +37,8 @@ class TestAccessNestedMap(unittest.TestCase):
                                          path: tuple,
                                          expected_message: str) -> None:
         """
-        Test that access_nested_map raises a KeyError with the expected message.
+        Test that access_nested_map raises
+        a KeyError with the expected message.
         """
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
